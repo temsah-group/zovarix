@@ -124,22 +124,22 @@ export const projects = [
     url: '', // add the App Store / Google Play link here when it is published
     art: 'asl',
     symbol: '',
-    // Add real screenshots when ready, e.g.:
-    // shots: { desktop: '/work/asl-cover.webp', mobile: '/work/asl-mobile.webp' },
+    // Real app screenshots (files in /public/work): shown as three phones.
+    shots: { phones: ['/work/asl-splash.webp', '/work/asl-home.webp', '/work/asl-onboarding.webp'] },
     image: '',
     imageAlt: { en: 'Asl real estate app', ar: 'تطبيق أصل للعقارات' },
     en: {
       type: 'MOBILE APPLICATION · REAL ESTATE',
-      tagline: 'Find the place that feels like home',
+      tagline: 'Every property has its roots',
       summary:
-        'A real estate app for Egypt and Saudi Arabia: browse and publish properties with photos, video and instalment plans, pin locations on a map, and sign in securely with your phone or email.',
+        'An all-in-one platform for trading real estate assets in Egypt and Saudi Arabia — residential, commercial, industrial and land — with live auctions, listings with photos, video and instalment plans, map-based locations and secure phone or email sign-in.',
       challenge:
         'Build a property marketplace people can trust — verified accounts, listings reviewed before they go live, and uploads that survive weak mobile networks.',
       approach:
         'A Flutter app for iOS and Android with phone/email OTP sign-in and identity verification, duplicate-safe uploads that resume after network drops, a map-based location picker, and Arabic and English that follow the device language.',
       deliverables: [
         'Flutter app (iOS & Android)',
-        'Property listings & publishing',
+        'Live auctions & listings',
         'Map location picker',
         'OTP sign-in & verification',
         'Arabic / English',
@@ -148,16 +148,16 @@ export const projects = [
     },
     ar: {
       type: 'تطبيق جوال · عقارات',
-      tagline: 'ابحث عن المكان الذي يشبه بيتك',
+      tagline: 'كل عقار له أصل',
       summary:
-        'تطبيق عقارات لمصر والسعودية: تصفح العقارات وانشرها بالصور والفيديو وخطط التقسيط، وحدد الموقع على الخريطة، وسجّل الدخول بأمان برقم الهاتف أو البريد الإلكتروني.',
+        'منصة متكاملة لتداول الأصول العقارية في مصر والسعودية — سكني وتجاري وصناعي وأراضٍ — بمزادات مباشرة، وإعلانات بالصور والفيديو وخطط التقسيط، وتحديد المواقع على الخريطة، وتسجيل دخول آمن بالهاتف أو البريد.',
       challenge:
         'بناء سوق عقارات يثق به الناس — حسابات موثقة، وإعلانات تُراجَع قبل نشرها، ورفع ملفات يصمد أمام شبكات الجوال الضعيفة.',
       approach:
         'تطبيق Flutter لـ iOS وAndroid بتسجيل دخول برمز التحقق (OTP) وتوثيق للهوية، ورفع آمن من التكرار يستكمل بعد انقطاع الشبكة، واختيار الموقع على الخريطة، وواجهة عربية وإنجليزية تتبع لغة الجهاز.',
       deliverables: [
         'تطبيق Flutter (iOS وAndroid)',
-        'إعلانات العقارات ونشرها',
+        'المزادات المباشرة والإعلانات',
         'اختيار الموقع على الخريطة',
         'دخول برمز التحقق وتوثيق الحساب',
         'عربي / إنجليزي',

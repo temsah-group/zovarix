@@ -16,7 +16,15 @@ export function ProjectArt({ project, lang, index, total }) {
   const p = project[lang];
   return (
     <div className={`art art-${project.art}`}>
-      {project.shots ? (
+      {project.shots?.phones ? (
+        <div className="art-scene phones-scene" aria-hidden="true">
+          {project.shots.phones.slice(0, 3).map((src, i) => (
+            <div className={`pshot pshot-${i}`} key={src}>
+              <img src={src} alt="" loading="lazy" decoding="async" />
+            </div>
+          ))}
+        </div>
+      ) : project.shots ? (
         <div className="art-scene shot-scene" aria-hidden="true">
           <div className="browser shot-browser">
             <div className="browser-bar" dir="ltr"><i /><i /><i /><span>{project.url?.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span></div>

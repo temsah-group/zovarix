@@ -436,6 +436,28 @@ html[dir="rtl"] .marquee-track { animation-name: marquee-rtl; }
   .asl-photo { height: 64px; }
 }
 
+/* real app screenshots: three phones (centre one in front) */
+.art-asl { background: radial-gradient(ellipse at 50% 35%, #6a7a68, #4c5a4e 55%, #3a463d); }
+.phones-scene { display: flex; align-items: center; justify-content: center; }
+.pshot {
+  position: absolute; top: 50%; left: 50%; height: 80%; aspect-ratio: 1320 / 2868;
+  border-radius: 22px; border: 4px solid #151612; overflow: hidden; background: #000;
+  box-shadow: 0 28px 60px #10120e80, 0 0 0 1px #ffffff1a;
+  transition: transform 1.2s var(--ease);
+}
+.pshot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.pshot-1 { z-index: 3; transform: translate(-50%, -50%); }
+.pshot-0 { z-index: 2; height: 70%; transform: translate(-128%, -46%) rotate(-6deg); filter: brightness(.9); }
+.pshot-2 { z-index: 2; height: 70%; transform: translate(28%, -46%) rotate(6deg); filter: brightness(.9); }
+.project-link:hover .pshot-1 { transform: translate(-50%, -53%); }
+.project-link:hover .pshot-0 { transform: translate(-138%, -46%) rotate(-9deg); }
+.project-link:hover .pshot-2 { transform: translate(38%, -46%) rotate(9deg); }
+.project-link:hover .phones-scene { transform: none; }
+.art-asl .art-index, .art-asl .art-caption { color: #e3e0d0 !important; }
+.dialog-inner > .art .pshot { height: 54%; }
+.dialog-inner > .art .pshot-0, .dialog-inner > .art .pshot-2 { height: 46%; }
+@media (max-width: 760px) { .pshot { border-radius: 14px; border-width: 3px; } }
+
 /* real screenshots: desktop in a browser frame + phone */
 .browser.shot-browser { left: 7%; right: 16%; top: 13%; bottom: auto; background: #111; }
 .shot-browser img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
