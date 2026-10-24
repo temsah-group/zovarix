@@ -1,0 +1,12 @@
+node_modules
+dist
+*.local
+.DS_Store
+
+# local leftovers
+Claude outputs/
+README-1.md
+src/style-1.css
+*.tgz
+.env
+.env.*
