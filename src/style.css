@@ -454,6 +454,9 @@ html[dir="rtl"] .marquee-track { animation-name: marquee-rtl; }
 .project-link:hover .pshot-2 { transform: translate(38%, -46%) rotate(9deg); }
 .project-link:hover .phones-scene { transform: none; }
 .art-asl .art-index, .art-asl .art-caption { color: #e3e0d0 !important; }
+.art-arabiti { background: radial-gradient(ellipse at 50% 30%, #3a3a33, #26272a 55%, #1b1c1f); }
+.art-arabiti::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 62%, #f57c0026, transparent 55%); }
+.art-arabiti .art-index, .art-arabiti .art-caption { color: #e3e0d0; }
 .dialog-inner > .art .pshot { height: 54%; }
 .dialog-inner > .art .pshot-0, .dialog-inner > .art .pshot-2 { height: 46%; }
 @media (max-width: 760px) { .pshot { border-radius: 14px; border-width: 3px; } }

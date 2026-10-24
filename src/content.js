@@ -35,7 +35,7 @@ export const categories = [
 /* ---------------------------------------------------------------------------
  * Projects (sample content)
  *  - `art` picks one of the CSS-built artworks:
- *      'rasmetak' | 'ghrnata' | 'asl' | 'monolith' | 'slowform' | 'dusk'
+ *      'rasmetak' | 'ghrnata' | 'asl' | 'arabiti' | 'monolith' | 'slowform' | 'dusk'
  *  - `shots: { desktop, mobile }` shows real screenshots in a browser + phone mockup
  *  - `url` (optional) adds a "Visit website" button and a "Live" badge
  *  - `sample: true` marks placeholder projects with a "Sample" badge
@@ -163,6 +163,45 @@ export const projects = [
         'عربي / إنجليزي',
       ],
       platform: 'iOS · Android (Flutter)',
+    },
+  },
+
+  {
+    id: 'arabiti',
+    name: 'ARABITI',
+    nameAr: 'عربيتي',
+    category: 'mobile',
+    year: '',
+    url: '', // add the App Store / Google Play link here when it is published
+    art: 'arabiti',
+    symbol: '',
+    // Real app screenshots (files in /public/work). The splash screen is a design
+    // made for the site; the account screenshot has the e-mail address hidden.
+    shots: { phones: ['/work/arabiti-splash.webp', '/work/arabiti-home.webp', '/work/arabiti-account.webp'] },
+    image: '',
+    imageAlt: { en: 'Arabiti car parts app', ar: 'تطبيق عربيتي لقطع الغيار' },
+    en: {
+      type: 'MOBILE APPLICATION · AUTO PARTS',
+      tagline: 'Find the part that fits your car',
+      summary:
+        'A marketplace app for car spare parts: add your car to see only the parts that fit, search by part name or number, filter new, used or imported parts, and buy from trusted sellers — or open your own shop.',
+      challenge:
+        'Help drivers find the right part for their exact car among thousands of listings from many different sellers.',
+      approach:
+        'Car-aware search that filters by the user’s saved cars, clear categories (engine, brakes, suspension, electrical), seller shops with reviews, weekly deals, and Arabic and English.',
+      deliverables: ['Mobile UX & UI', 'iOS & Android app', 'Car-fit search & filters', 'Seller shops & reviews', 'Arabic / English'],
+      platform: 'iOS · Android',
+    },
+    ar: {
+      type: 'تطبيق جوال · قطع غيار',
+      tagline: 'القطعة المناسبة لعربيتك',
+      summary:
+        'سوق إلكتروني لقطع غيار السيارات: أضف عربيتك لتظهر لك القطع المناسبة لها فقط، وابحث باسم القطعة أو رقمها، وفلتر بين الجديد والمستعمل والمستورد، واشترِ من بائعين موثوقين — أو افتح متجرك الخاص.',
+      challenge: 'مساعدة السائقين على الوصول للقطعة الصحيحة لعربيتهم بالتحديد وسط آلاف الإعلانات من بائعين كثيرين.',
+      approach:
+        'بحث يعرف عربيتك ويفلتر حسب السيارات المحفوظة، وأقسام واضحة (المحرك، الفرامل، العفشة، الكهرباء)، ومتاجر للبائعين بتقييمات، وعروض أسبوعية، ودعم للعربية والإنجليزية.',
+      deliverables: ['تصميم تجربة وواجهة الجوال', 'تطبيق iOS وAndroid', 'بحث وفلاتر حسب العربية', 'متاجر البائعين والتقييمات', 'عربي / إنجليزي'],
+      platform: 'iOS · Android',
     },
   },
 
