@@ -24,10 +24,10 @@ import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeom
 import LeanCanvas from './LeanCanvas.jsx';
 
 const PALETTE = {
-  plate: '#6c7156', // olive plates
-  plateAlt: '#d9d1b4', // ivory accent plates
+  plate: '#4f553c', // deep olive plates
+  plateAlt: '#b89a5a', // muted gold accent plates
   core: '#efe4c2', // glowing core
-  ring: '#c9c0a0',
+  ring: '#a8873f',
   key: '#f1ead7',
   fill: '#899071',
   rim: '#c8bfa2',

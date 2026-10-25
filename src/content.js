@@ -15,8 +15,10 @@
 export const site = {
   name: 'ZOVARIX',
   email: 'hello@zovarix.studio', // ← replace before publishing
-  founded: 2020,
-  coordinates: "30° 02' N  31° 14' E",
+  // Contact form: requests are sent with FormSubmit (formsubmit.co) to `email` above —
+  // no account needed; the very first request sends an activation link to that inbox.
+  // To use another service (Formspree, Web3Forms, your API), put its endpoint here.
+  formEndpoint: '',
   // Social links render only when `href` is filled in.
   socials: [
     { label: 'Instagram', href: '' },
@@ -35,7 +37,7 @@ export const categories = [
 /* ---------------------------------------------------------------------------
  * Projects (sample content)
  *  - `art` picks one of the CSS-built artworks:
- *      'rasmetak' | 'ghrnata' | 'asl' | 'arabiti' | 'monolith' | 'slowform' | 'dusk'
+ *      'rasmetak' | 'ghrnata' | 'golden' | 'asl' | 'arabiti' | 'monolith' | 'slowform' | 'dusk'
  *  - `shots: { desktop, mobile }` shows real screenshots in a browser + phone mockup
  *  - `url` (optional) adds a "Visit website" button and a "Live" badge
  *  - `sample: true` marks placeholder projects with a "Sample" badge
@@ -115,6 +117,41 @@ export const projects = [
     },
   },
 
+  {
+    id: 'golden-streamers',
+    name: 'GOLDEN STREAMERS',
+    category: 'web',
+    year: '',
+    url: 'https://goldenstreamers.com/',
+    art: 'golden',
+    symbol: '',
+    shots: { desktop: '/work/goldenstreamers-desktop.webp', mobile: '/work/goldenstreamers-mobile.webp' },
+    image: '',
+    imageAlt: { en: 'Golden Streamers website', ar: 'موقع Golden Streamers' },
+    en: {
+      type: 'GAMING COMMUNITY · WEBSITE',
+      tagline: 'Play. Explore. Create. Together.',
+      summary:
+        'The home of Golden Streamers — an agency supporting TikTok live streamers across the MENA region — bringing browser games, creator rewards, live events and an AI gaming assistant together in one playful platform.',
+      challenge:
+        'Turn an agency website into a destination: a place streamers and fans come back to play, learn and stay connected.',
+      approach:
+        'A bright, game-world visual style, a featured games hub with trailers and ratings, the Golden LiveX events programme, an AI assistant for streaming guidance, and Arabic and English with light and dark modes.',
+      deliverables: ['Website design', 'Games hub', 'AI assistant', 'Live events & community', 'Arabic / English'],
+      platform: 'Web',
+    },
+    ar: {
+      type: 'منصة ألعاب · موقع إلكتروني',
+      tagline: 'العب. استكشف. ابتكر. معًا.',
+      summary:
+        'منصة Golden Streamers — وكالة متخصصة في دعم وتطوير صنّاع البث المباشر على تيك توك في الشرق الأوسط وشمال أفريقيا — تجمع ألعاب المتصفح ومكافآت صنّاع المحتوى والفعاليات المباشرة ومساعدًا ذكيًا للألعاب في منصة واحدة مرحة.',
+      challenge: 'تحويل موقع الوكالة إلى وجهة يعود إليها الستريمرز والجمهور للعب والتعلّم والبقاء على تواصل.',
+      approach:
+        'هوية بصرية مشرقة مستوحاة من عوالم الألعاب، ومركز للألعاب المميزة بعروض وتقييمات، وبرنامج فعاليات Golden LiveX، ومساعد ذكي لإرشادات البث، مع العربية والإنجليزية والوضعين الفاتح والداكن.',
+      deliverables: ['تصميم الموقع', 'مركز الألعاب', 'المساعد الذكي', 'الفعاليات والمجتمع', 'عربي / إنجليزي'],
+      platform: 'ويب',
+    },
+  },
   {
     id: 'asl',
     name: 'ASL',
@@ -205,99 +242,49 @@ export const projects = [
     },
   },
 
-  /* ----- Sample projects (placeholders — replace or delete) ------------- */
-  {
-    id: 'monolith',
-    sample: true,
-    name: 'MONOLITH',
-    category: 'web',
-    year: '2025',
-    art: 'monolith',
-    symbol: 'M',
-    image: '',
-    imageAlt: { en: '', ar: '' },
-    en: {
-      type: 'DIGITAL FLAGSHIP · WEBSITE',
-      tagline: 'An architecture of stillness',
-      summary:
-        'A flagship website for an architecture practice — slow, spacious and built around the work itself.',
-      challenge:
-        'Present a large, image-heavy portfolio without losing the calm, gallery-like feeling of the studio’s buildings.',
-      approach:
-        'A restrained grid, long-form project stories and a lightweight CMS so the team can publish new work in minutes.',
-      deliverables: ['Art direction', 'UX & UI design', 'Front-end development', 'Headless CMS'],
-      platform: 'Web · CMS',
-    },
-    ar: {
-      type: 'موقع رئيسي · منصة رقمية',
-      tagline: 'عمارة من السكون',
-      summary: 'موقع رئيسي لمكتب معماري — هادئ، رحب، ومبني حول الأعمال نفسها.',
-      challenge: 'عرض أرشيف كبير غني بالصور دون أن يفقد الموقع إحساس المعرض الهادئ الذي تتميز به مباني المكتب.',
-      approach: 'شبكة متزنة، وقصص مشاريع مطوّلة، ونظام إدارة محتوى خفيف يتيح للفريق نشر الأعمال الجديدة في دقائق.',
-      deliverables: ['التوجيه الفني', 'تصميم تجربة وواجهة المستخدم', 'تطوير الواجهات', 'نظام إدارة محتوى'],
-      platform: 'ويب · نظام إدارة محتوى',
-    },
-  },
-  {
-    id: 'slowform',
-    sample: true,
-    name: 'SLOWFORM',
-    category: 'mobile',
-    year: '2024',
-    art: 'slowform',
-    symbol: '◉',
-    image: '',
-    imageAlt: { en: '', ar: '' },
-    en: {
-      type: 'MOBILE APPLICATION · WELLNESS',
-      tagline: 'A gentler daily rhythm',
-      summary: 'A calm wellness companion that replaces streaks and pressure with small, mindful daily moments.',
-      challenge: 'Design habit-building that feels encouraging rather than demanding — and keeps people coming back.',
-      approach:
-        'Soft rituals, offline-first sessions and subtle haptics, shipped natively for iOS and Android from a shared design system.',
-      deliverables: ['Product strategy', 'Mobile UX & UI', 'iOS & Android development', 'Design system'],
-      platform: 'iOS · Android',
-    },
-    ar: {
-      type: 'تطبيق جوال · عافية',
-      tagline: 'إيقاع يومي ألطف',
-      summary: 'رفيق هادئ للعافية يستبدل الضغط والأرقام المتتالية بلحظات يومية صغيرة وواعية.',
-      challenge: 'تصميم بناء العادات بطريقة مشجعة لا مُرهِقة — تجعل المستخدم يعود من تلقاء نفسه.',
-      approach: 'طقوس لطيفة، وجلسات تعمل دون اتصال، واهتزازات دقيقة، بتطبيقين أصليين لـ iOS وAndroid من نظام تصميم موحد.',
-      deliverables: ['استراتيجية المنتج', 'تصميم تجربة وواجهة الجوال', 'تطوير iOS وAndroid', 'نظام تصميم'],
-      platform: 'iOS · Android',
-    },
-  },
-  {
-    id: 'dust-and-dusk',
-    sample: true,
-    name: 'DUST & DUSK',
+  /* ----- Golden Games (TikTok LIVE games for Golden Streamers) ----------
+   * Covers come from goldenstreamers.com/games. Edit or remove any entry. */
+  ...[
+    ['fly-bird', 'FLY BIRD', 'Typing action', 'أكشن كتابة', 'Keep the golden bird in the air.', 'أبقِ الطائر الذهبي في الهواء.', 'HOT'],
+    ['sky-tower-2', 'SKY TOWER 2', 'Tower climb / adventure', 'تسلّق أبراج / مغامرة', 'The climb goes higher.', 'التسلّق يصعد أعلى.', 'HOT'],
+    ['sky-tower', 'SKY TOWER', 'Tower climb / adventure', 'تسلّق أبراج / مغامرة', 'Climb the tower, together.', 'تسلّق البرج، معًا.'],
+    ['battle-arena', 'BATTLE ARENA', 'Action / battle arena', 'أكشن / ساحة معارك', 'New map, new heroes, more action.', 'خريطة جديدة، أبطال جدد، أكشن أكثر.'],
+    ['keep-climbing', 'KEEP CLIMBING', 'Climbing / platformer', 'تسلّق / منصات', 'One more step to the top.', 'خطوة أخرى نحو القمة.', '', 'center 8%'],
+    ['key-rush', 'KEY RUSH', 'Typing action', 'أكشن كتابة', 'Fast fingers win.', 'الأصابع الأسرع تفوز.', '', 'center 45%'],
+    ['subway-fly', 'SUBWAY FLY', 'Endless runner', 'جري بلا نهاية', 'Run. Fly. Survive.', 'اركض. طِر. انجُ.', '', 'center 6%'],
+    ['road-rush', 'ROAD RUSH', 'Racing', 'سباقات', 'Full speed on the open road.', 'بأقصى سرعة على الطريق.'],
+  ].map(([id, name, genreEn, genreAr, taglineEn, taglineAr, badge, focus]) => ({
+    id: `game-${id}`,
+    name,
     category: 'games',
-    year: '2023',
-    art: 'dusk',
-    symbol: '✳',
-    image: '',
-    imageAlt: { en: '', ar: '' },
+    year: '',
+    url: 'https://goldenstreamers.com/games',
+    art: 'game',
+    symbol: '',
+    image: `/work/game-${id}.webp`,
+    focus, // optional object-position for the cover crop
+    imageAlt: { en: `${name} game cover`, ar: `غلاف لعبة ${name}` },
+    badge,
+    genre: { en: genreEn, ar: genreAr },
     en: {
-      type: 'INTERACTIVE GAME · WORLD-BUILDING',
-      tagline: 'A world made of little wonders',
-      summary: 'A quiet exploration game set in a desert at dusk, where every dune hides a small discovery.',
-      challenge: 'Build an atmospheric world that runs smoothly in the browser and on modest hardware.',
-      approach:
-        'Hand-tuned lighting, procedural dunes and a soundscape that reacts to the player — optimised for 60 fps on the web.',
-      deliverables: ['Game concept', 'World & level design', 'Real-time 3D development', 'Sound direction'],
-      platform: 'Web · PC',
+      type: `GAME · ${genreEn.toUpperCase()}`,
+      tagline: taglineEn,
+      summary: `${name} is part of Golden Games — a library of ${genreEn.toLowerCase()} and other interactive games built for Golden Streamers’ TikTok LIVE creators and their audiences.`,
+      challenge: 'Keep a live audience entertained and coming back, stream after stream, on small phone screens.',
+      approach: 'Bold, readable game art, short rounds that fit a live stream, and a consistent Golden Streamers look across the whole games library.',
+      deliverables: ['Game design', 'Game art & UI', 'Real-time gameplay', 'Trailer & cover art'],
+      platform: 'TikTok LIVE',
     },
     ar: {
-      type: 'لعبة تفاعلية · بناء عوالم',
-      tagline: 'عالم من العجائب الصغيرة',
-      summary: 'لعبة استكشاف هادئة في صحراء عند الغروب، حيث يخفي كل كثيب اكتشافًا صغيرًا.',
-      challenge: 'بناء عالم غني بالأجواء يعمل بسلاسة داخل المتصفح وعلى الأجهزة المتوسطة.',
-      approach: 'إضاءة مضبوطة يدويًا، وكثبان مولّدة إجرائيًا، ومشهد صوتي يتفاعل مع اللاعب — بأداء ٦٠ إطارًا في الثانية على الويب.',
-      deliverables: ['فكرة اللعبة', 'تصميم العالم والمراحل', 'تطوير ثلاثي الأبعاد في الوقت الحقيقي', 'التوجيه الصوتي'],
-      platform: 'ويب · حاسوب',
+      type: `لعبة · ${genreAr}`,
+      tagline: taglineAr,
+      summary: `${name} جزء من Golden Games — مكتبة ألعاب تفاعلية (${genreAr} وغيرها) مصممة لصنّاع البث المباشر على تيك توك مع Golden Streamers وجمهورهم.`,
+      challenge: 'إمتاع جمهور البث المباشر وإبقاؤه عائدًا بثًا بعد بث، على شاشات الجوال الصغيرة.',
+      approach: 'رسوم ألعاب جريئة وواضحة، وجولات قصيرة تناسب البث المباشر، وهوية Golden Streamers موحّدة في مكتبة الألعاب كلها.',
+      deliverables: ['تصميم اللعبة', 'رسوم وواجهة اللعبة', 'لعب في الوقت الحقيقي', 'الإعلان التشويقي والغلاف'],
+      platform: 'تيك توك لايف',
     },
-  },
+  })),
 ];
 
 /* ---------------------------------------------------------------------------
@@ -317,7 +304,7 @@ export const copy = {
     langSwitch: { label: 'عربي', aria: 'التبديل إلى العربية' },
 
     hero: {
-      eyebrow: 'INDEPENDENT DIGITAL STUDIO · EST. 2020',
+      eyebrow: 'INDEPENDENT DIGITAL STUDIO',
       kicker: 'DESIGN · TECHNOLOGY · PLAY',
       title: 'We make\ndigital *matter.*',
       intro: 'A creative studio shaping meaningful digital experiences — from first spark to final pixel.',
@@ -341,6 +328,13 @@ export const copy = {
       live: 'Live',
       visit: 'Visit website',
       empty: 'New projects in this category are on the way.',
+      ctaTitle: 'Your project\ncould be *next.*',
+      ctaText: 'Tell us what you’re building',
+      gamesEyebrow: 'GOLDEN GAMES',
+      gamesTitle: 'Games for live creators',
+      gamesText: 'Eight interactive games made for the Golden Streamers TikTok LIVE community.',
+      gamesLink: 'Play on Golden Streamers',
+      gamesCount: 'games',
     },
 
     project: {
@@ -394,7 +388,6 @@ export const copy = {
       title: 'Good work starts\nwith *good questions.*',
       text:
         'We bring strategy, design and technology together to build digital things that feel considered, work beautifully and stay with you.',
-      location: 'CAIRO · EVERYWHERE',
       principles: [
         ['Clarity first', 'We simplify before we decorate.'],
         ['Crafted detail', 'Every interaction is designed on purpose.'],
@@ -416,8 +409,13 @@ export const copy = {
         message: 'About the project',
         messageHint: 'Goals, timeline, links — anything helpful.',
         submit: 'Send enquiry',
-        sending: 'Opening your email app…',
-        sent: 'Your email app should now be open with the message ready. If not, write to us directly at',
+        sending: 'Sending…',
+        sentTitle: 'Request sent — thank you!',
+        sent: 'We’ve received your project request and emailed you a confirmation. We’ll get back to you within two working days.',
+        sendAnother: 'Send another request',
+        error: 'Something went wrong while sending. Please try again, or write to us directly at',
+        autoReply:
+          'Thank you for contacting ZOVARIX! We’ve received your project request and will get back to you within two working days.',
         required: 'Please fill in the highlighted fields.',
       },
       orEmail: 'Or write to us directly',
@@ -441,7 +439,7 @@ export const copy = {
     langSwitch: { label: 'EN', aria: 'Switch to English' },
 
     hero: {
-      eyebrow: 'استوديو رقمي مستقل · منذ ٢٠٢٠',
+      eyebrow: 'استوديو رقمي مستقل',
       kicker: 'استوديو إبداعي متعدد التخصصات',
       title: 'نصنع\nرقميًا *يُلامس.*',
       intro: 'استوديو إبداعي يصمم تجارب رقمية مؤثرة — من أول فكرة إلى آخر تفصيلة.',
@@ -465,6 +463,13 @@ export const copy = {
       live: 'مباشر',
       visit: 'زيارة الموقع',
       empty: 'مشاريع جديدة في هذه الفئة قريبًا.',
+      ctaTitle: 'مشروعك\n*قد يكون التالي.*',
+      ctaText: 'أخبرنا بما تبنيه',
+      gamesEyebrow: 'Golden Games',
+      gamesTitle: 'ألعاب لصنّاع البث المباشر',
+      gamesText: 'ثماني ألعاب تفاعلية صُممت لمجتمع Golden Streamers على تيك توك لايف.',
+      gamesLink: 'العب على Golden Streamers',
+      gamesCount: 'ألعاب',
     },
 
     project: {
@@ -517,7 +522,6 @@ export const copy = {
       eyebrow: 'استوديو صغير. رؤية كبيرة.',
       title: 'العمل المميز\nيبدأ بـ *سؤال جيد.*',
       text: 'نجمع بين الاستراتيجية والتصميم والتقنية لنصنع تجارب رقمية مدروسة، جميلة في الاستخدام، وتبقى في الذاكرة.',
-      location: 'القاهرة · وكل مكان',
       principles: [
         ['الوضوح أولًا', 'نُبسّط قبل أن نُزيّن.'],
         ['تفاصيل متقنة', 'كل تفاعل مصمم عن قصد.'],
@@ -539,8 +543,12 @@ export const copy = {
         message: 'عن المشروع',
         messageHint: 'الأهداف، الجدول الزمني، روابط — أي شيء مفيد.',
         submit: 'أرسل الطلب',
-        sending: 'جارٍ فتح تطبيق البريد…',
-        sent: 'يُفترض أن تطبيق البريد قد فُتح والرسالة جاهزة. إن لم يحدث ذلك، راسلنا مباشرة على',
+        sending: 'جارٍ الإرسال…',
+        sentTitle: 'تم إرسال طلبك — شكرًا لك!',
+        sent: 'استلمنا طلب مشروعك وأرسلنا لك رسالة تأكيد على بريدك الإلكتروني، وسنرد عليك خلال يومي عمل.',
+        sendAnother: 'إرسال طلب آخر',
+        error: 'حدث خطأ أثناء الإرسال. حاول مرة أخرى، أو راسلنا مباشرة على',
+        autoReply: 'شكرًا لتواصلك مع ZOVARIX! استلمنا طلب مشروعك وسنعود إليك خلال يومي عمل.',
         required: 'يُرجى تعبئة الحقول المحددة.',
       },
       orEmail: 'أو راسلنا مباشرة',

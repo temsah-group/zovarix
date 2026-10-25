@@ -37,7 +37,7 @@ export function ProjectArt({ project, lang, index, total }) {
           )}
         </div>
       ) : project.image ? (
-        <img src={project.image} alt={project.imageAlt?.[lang] || ''} loading="lazy" decoding="async" />
+        <img src={project.image} alt={project.imageAlt?.[lang] || ''} loading="lazy" decoding="async" style={project.focus ? { objectPosition: project.focus } : undefined} />
       ) : (
         <div className="art-scene" aria-hidden="true">
           {project.symbol && <span className="art-symbol">{project.symbol}</span>}
@@ -195,7 +195,10 @@ export default function Work({ t, lang }) {
     categories.forEach((cat) => { c[cat.id] = projects.filter((p) => p.category === cat.id).length; });
     return c;
   }, []);
-  const list = filter === 'all' ? projects : projects.filter((p) => p.category === filter);
+  const featured = projects.filter((p) => p.category !== 'games');
+  const games = projects.filter((p) => p.category === 'games');
+  const list = filter === 'all' ? featured : filter === 'games' ? [] : featured.filter((p) => p.category === filter);
+  const showGames = (filter === 'all' || filter === 'games') && games.length > 0;
   const openProject = projects.find((p) => p.id === openId);
 
   const open = (id, e) => { lastTrigger.current = e.currentTarget; setOpenId(id); };
@@ -217,7 +220,7 @@ export default function Work({ t, lang }) {
         <span className="eyebrow">{t.work.eyebrow} <i aria-hidden="true">✳</i></span>
         <span className="micro">{t.work.micro}</span>
       </div>
-      <h2 id="work-title" data-reveal><Rich text={t.work.title} /></h2>
+      <h2 id="work-title" data-reveal><span className="h-mask"><Rich text={t.work.title} /></span></h2>
 
       <div className="filters" role="group" aria-label={t.work.filterLabel} data-reveal>
         {filters.map((f) => (
@@ -234,8 +237,8 @@ export default function Work({ t, lang }) {
         ))}
       </div>
 
-      <div className={`projects${filter === 'all' ? ' is-staggered' : ''}`} aria-live="polite">
-        {list.length === 0 && <p className="empty">{t.work.empty}</p>}
+      <div className="projects" aria-live="polite">
+        {list.length === 0 && !showGames && <p className="empty">{t.work.empty}</p>}
         {list.map((project, i) => {
           const p = project[lang];
           return (
@@ -247,7 +250,7 @@ export default function Work({ t, lang }) {
                 aria-haspopup="dialog"
                 aria-label={`${t.work.view}: ${projectName(project, lang)} — ${catLabel(project.category, lang)}`}
               >
-                <ProjectArt project={project} lang={lang} index={projects.indexOf(project)} total={projects.length} />
+                <ProjectArt project={project} lang={lang} index={i} total={list.length} />
                 <span className="art-arrow" aria-hidden="true"><ArrowUpRight /></span>
               </button>
               <div className="project-meta">
@@ -256,6 +259,7 @@ export default function Work({ t, lang }) {
                     <span className="badge">{catLabel(project.category, lang)}</span>
                     {project.url && <span className="badge badge-live">{t.work.live}</span>}
                     {project.sample && <span className="badge badge-sample">{t.work.sampleTag}</span>}
+                    {project.badge && <span className="badge badge-hot">{project.badge}</span>}
                     {project.year}
                   </span>
                   <h3>{projectName(project, lang)}</h3>
@@ -268,8 +272,51 @@ export default function Work({ t, lang }) {
             </article>
           );
         })}
+        {filter === 'all' && list.length % 2 === 1 && (
+          <article className="project project-cta" data-reveal>
+            <a className="cta-card" href="#contact">
+              <span className="cta-title"><Rich text={t.work.ctaTitle} /></span>
+              <span className="cta-text">{t.work.ctaText} <ArrowUpRight size={18} aria-hidden="true" /></span>
+            </a>
+          </article>
+        )}
       </div>
-      <p className="sample-note" data-reveal>{t.work.sample}</p>
+
+      {showGames && (
+        <div className="games-block" data-reveal>
+          <div className="games-head">
+            <div>
+              <span className="eyebrow">{t.work.gamesEyebrow} <i aria-hidden="true">✳</i></span>
+              <h3>{t.work.gamesTitle}</h3>
+              <p>{t.work.gamesText}</p>
+            </div>
+            <a className="btn btn-ghost" href="https://goldenstreamers.com/games" target="_blank" rel="noopener noreferrer">
+              {t.work.gamesLink} <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+          </div>
+          <ul className="games-grid">
+            {games.map((g, gi) => (
+              <li key={g.id} data-reveal style={{ '--i': gi % 4 }}>
+                <button
+                  type="button"
+                  className="game-tile"
+                  onClick={(e) => open(g.id, e)}
+                  aria-haspopup="dialog"
+                  aria-label={`${t.work.view}: ${projectName(g, lang)}`}
+                >
+                  <span className="game-cover">
+                    <img src={g.image} alt="" loading="lazy" decoding="async" style={g.focus ? { objectPosition: g.focus } : undefined} />
+                    {g.badge && <span className="game-badge">{g.badge}</span>}
+                  </span>
+                  <span className="game-name">{projectName(g, lang)}</span>
+                  <span className="game-genre">{g.genre?.[lang]}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {projects.some((p) => p.sample) && <p className="sample-note" data-reveal>{t.work.sample}</p>}
 
       {openProject && <ProjectDialog t={t} lang={lang} project={openProject} onClose={close} onNext={next} />}
     </section>

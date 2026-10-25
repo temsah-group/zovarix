@@ -8,10 +8,16 @@ export default function Nav({ t, lang, onToggleLang, active }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const panelRef = useRef(null);
+  const progressRef = useRef(null);
   const buttonRef = useRef(null);
 
   useEffect(() => {
-    const on = () => setScrolled(window.scrollY > 24);
+    const bar = progressRef;
+    const on = () => {
+      setScrolled(window.scrollY > 24);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.current?.style.setProperty('--sp', max > 0 ? Math.min(1, window.scrollY / max).toFixed(4) : 0);
+    };
     on();
     window.addEventListener('scroll', on, { passive: true });
     return () => window.removeEventListener('scroll', on);
@@ -53,6 +59,7 @@ export default function Nav({ t, lang, onToggleLang, active }) {
 
   return (
     <header className={`nav${scrolled ? ' is-scrolled' : ''}${open ? ' is-open' : ''}`}>
+      <span className="scroll-progress" ref={progressRef} aria-hidden="true" />
       <a className="brand" href="#top" aria-label={`${site.name} — home`}>
         ZOVARIX<span aria-hidden="true">®</span>
       </a>

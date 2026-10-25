@@ -30,7 +30,7 @@ In `src/content.js`, `\n` adds a line break and `*text*` marks the olive serif a
 
 ### Projects
 
-`projects` starts with the client work: Rasmetak, GHRNATA and the Asl real-estate app (a CSS mockup until screenshots are added). After them come sample projects marked `sample: true`, which show a “Sample” badge. Each project has:
+`projects` holds the client work: the Rasmetak, GHRNATA and Golden Streamers websites, the Asl and Arabiti mobile apps, and eight Golden Games covers from goldenstreamers.com/games. The games are generated from a short list near the end of the file. Each project has:
 
 - `category`: `'web' | 'mobile' | 'games'`. This drives the Work filters and the badges.
 - `shots: { desktop, mobile }`: real screenshots shown in a browser and phone mockup. The files are in `public/work/`; replace them with new captures any time.
@@ -48,7 +48,7 @@ To add a project, copy an existing object and edit it. The counters and filters 
 - **Scroll:** as the hero leaves, the copy lifts and fades, the sculpture sinks and turns, and the content sheet slides over it.
 - **Reduced motion:** with `prefers-reduced-motion`, there is no veil, marquee, reveal or idle spin. The 3D scene renders only on demand.
 - **Language:** the site uses `?lang=ar` or `?lang=en`, then the saved choice, then the browser language. It updates `<html lang dir>`, the title and the meta description.
-- **Contact form:** it needs no backend. It opens the visitor's email app with the enquiry filled in. To use a form service (Formspree, Netlify Forms, your own API), replace the `mailto:` line in `ContactForm` in `src/components/Sections.jsx`.
+- **Contact form:** requests are sent in the background with [FormSubmit](https://formsubmit.co) to `site.email`, and no account is needed. The visitor stays on the page, sees a confirmation message and receives an automatic confirmation e-mail. **The very first request sends an activation link to `site.email`. Open it once to start receiving requests.** To use another service, set `site.formEndpoint` in `src/content.js`.
 
 ## Performance
 
@@ -61,7 +61,7 @@ To add a project, copy an existing object and edit it. The counters and filters 
 ## Before publishing
 
 1. Replace the email in `src/content.js` (`site.email`) and add social links (`site.socials`).
-2. Review the Rasmetak and GHRNATA case-study text, and optionally add real screenshots as `image`. Then replace or delete the sample projects.
+2. Review the case-study text for each project, especially the shared Golden Games text, and add years and store links where known.
 3. In `index.html`, uncomment and fill `og:url` / `og:image` with the production domain, and add an `og-image.jpg` (1200×630) to `public/`.
 4. Run `npm install && npm run build`, then deploy the `dist/` folder to any static host (Netlify, Vercel, Cloudflare Pages, GitHub Pages…). No server routing is needed because this is a single page with hash links.
 5. Optional: connect the contact form to a form service, and add analytics or a cookie notice if your region requires one.

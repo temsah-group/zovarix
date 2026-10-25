@@ -38,6 +38,31 @@ export default function App() {
     storage.set('zovarix-lang', lang);
   }, [lang, t]);
 
+  // Magnetic hover for buttons (mouse/pen only, off with reduced motion).
+  useEffect(() => {
+    if (reduced || !window.matchMedia?.('(pointer: fine)').matches) return;
+    const SEL = '.btn, .nav-cta, .filter';
+    let current = null;
+    const reset = (el) => { if (el) el.style.transform = ''; };
+    const onMove = (e) => {
+      const el = e.target.closest?.(SEL);
+      if (el !== current) { reset(current); current = el; }
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - (r.left + r.width / 2)) / r.width;
+      const y = (e.clientY - (r.top + r.height / 2)) / r.height;
+      el.style.transform = `translate(${(x * 8).toFixed(2)}px, ${(y * 6).toFixed(2)}px)`;
+    };
+    const onOut = (e) => { if (current && !current.contains(e.relatedTarget)) { reset(current); current = null; } };
+    document.addEventListener('pointermove', onMove, { passive: true });
+    document.addEventListener('pointerout', onOut, { passive: true });
+    return () => {
+      document.removeEventListener('pointermove', onMove);
+      document.removeEventListener('pointerout', onOut);
+      reset(current);
+    };
+  }, [reduced]);
+
   useEffect(() => {
     storage.set('zovarix-intro', '1', 'sessionStorage');
     const v = setTimeout(() => setVeil(false), VEIL_MS);

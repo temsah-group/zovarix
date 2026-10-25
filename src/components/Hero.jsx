@@ -1,7 +1,6 @@
 import { Component, lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { MoveUpRight } from 'lucide-react';
 import Rich from './Rich.jsx';
-import { site } from '../content.js';
 import { detectQuality, hasWebGL } from '../lib/hooks.js';
 
 // The whole Three.js / R3F stack lives in this lazily-loaded chunk, so the page
@@ -129,7 +128,6 @@ export default function Hero({ t, lang, reduced, introMode }) {
 
       <div className="hero-meta">
         <span>{t.hero.eyebrow}</span>
-        <span dir="ltr">{site.coordinates}</span>
       </div>
 
       <div className="hero-copy">
