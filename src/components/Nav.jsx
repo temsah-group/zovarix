@@ -61,7 +61,7 @@ export default function Nav({ t, lang, onToggleLang, active }) {
     <header className={`nav${scrolled ? ' is-scrolled' : ''}${open ? ' is-open' : ''}`}>
       <span className="scroll-progress" ref={progressRef} aria-hidden="true" />
       <a className="brand" href="#top" aria-label={`${site.name} — home`}>
-        ZOVARIX<span aria-hidden="true">®</span>
+        {site.name}
       </a>
       <nav className="navlinks" aria-label={t.menu.label}>
         {SECTIONS.map((id) => (

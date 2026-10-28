@@ -1,6 +1,6 @@
-# ZOVARIX — studio website
+# WAVYTECH — studio website
 
-React + Vite site for ZOVARIX, an independent digital studio. It has a cinematic opening, an interactive 3D sculpture (Three.js + React Three Fiber), a bilingual English/Arabic interface with full RTL, and sections for Work, Services, Studio and Contact.
+React + Vite site for WAVYTECH, an independent digital studio. It has a cinematic opening, an interactive 3D sculpture (Three.js + React Three Fiber), a bilingual English/Arabic interface with full RTL, and sections for Work, Services, Studio and Contact.
 
 ## Run locally
 

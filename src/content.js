@@ -1,5 +1,6 @@
 /* ============================================================================
- * ZOVARIX — editable site content
+ * WAVYTECH — editable site content
+ * The studio name lives in `site.name` and is used everywhere on the page.
  * ----------------------------------------------------------------------------
  * Everything a non-developer is likely to change lives in this one file:
  * studio details, bilingual UI copy, services, principles and projects.
@@ -13,8 +14,8 @@
  * ========================================================================== */
 
 export const site = {
-  name: 'ZOVARIX',
-  email: 'hello@zovarix.studio', // ← replace before publishing
+  name: 'WAVYTECH',
+  email: 'hello@wavytech.net', // ← replace with a real inbox before publishing
   // Contact form: requests are sent with FormSubmit (formsubmit.co) to `email` above —
   // no account needed; the very first request sends an activation link to that inbox.
   // To use another service (Formspree, Web3Forms, your API), put its endpoint here.
@@ -293,9 +294,9 @@ export const projects = [
 export const copy = {
   en: {
     meta: {
-      title: 'ZOVARIX® — Digital studio',
+      title: 'WAVYTECH — Digital studio',
       description:
-        'ZOVARIX — an independent digital studio crafting websites, mobile applications and games.',
+        'WAVYTECH — an independent digital studio crafting websites, mobile applications and games.',
     },
     skip: 'Skip to content',
     nav: { work: 'Work', services: 'Services', studio: 'Studio', contact: 'Contact' },
@@ -415,7 +416,7 @@ export const copy = {
         sendAnother: 'Send another request',
         error: 'Something went wrong while sending. Please try again, or write to us directly at',
         autoReply:
-          'Thank you for contacting ZOVARIX! We’ve received your project request and will get back to you within two working days.',
+          'Thank you for contacting WAVYTECH! We’ve received your project request and will get back to you within two working days.',
         required: 'Please fill in the highlighted fields.',
       },
       orEmail: 'Or write to us directly',
@@ -429,8 +430,8 @@ export const copy = {
 
   ar: {
     meta: {
-      title: 'ZOVARIX® — استوديو رقمي',
-      description: 'ZOVARIX — استوديو رقمي مستقل يصمم ويطوّر المواقع الإلكترونية وتطبيقات الجوال والألعاب.',
+      title: 'WAVYTECH — استوديو رقمي',
+      description: 'WAVYTECH — استوديو رقمي مستقل يصمم ويطوّر المواقع الإلكترونية وتطبيقات الجوال والألعاب.',
     },
     skip: 'تخطَّ إلى المحتوى',
     nav: { work: 'الأعمال', services: 'الخدمات', studio: 'الاستوديو', contact: 'تواصل' },
@@ -548,7 +549,7 @@ export const copy = {
         sent: 'استلمنا طلب مشروعك وأرسلنا لك رسالة تأكيد على بريدك الإلكتروني، وسنرد عليك خلال يومي عمل.',
         sendAnother: 'إرسال طلب آخر',
         error: 'حدث خطأ أثناء الإرسال. حاول مرة أخرى، أو راسلنا مباشرة على',
-        autoReply: 'شكرًا لتواصلك مع ZOVARIX! استلمنا طلب مشروعك وسنعود إليك خلال يومي عمل.',
+        autoReply: 'شكرًا لتواصلك مع WAVYTECH! استلمنا طلب مشروعك وسنعود إليك خلال يومي عمل.',
         required: 'يُرجى تعبئة الحقول المحددة.',
       },
       orEmail: 'أو راسلنا مباشرة',

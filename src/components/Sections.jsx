@@ -70,7 +70,7 @@ export function Studio({ t }) {
       <div className="studio-grid">
         <h2 id="studio-title" data-reveal><span className="h-mask"><Rich text={s.title} /></span></h2>
         <div className="studio-aside" data-reveal>
-          <div className="studio-mark" aria-hidden="true">Z<span>®</span></div>
+          <div className="studio-mark" aria-hidden="true">{site.name[0]}</div>
           <p>{s.text}</p>
         </div>
       </div>
@@ -229,7 +229,7 @@ export function Contact({ t, lang }) {
         <ContactForm t={t} key={lang} />
       </div>
       <footer className="footer-bottom">
-        <a className="brand" href="#top" aria-label={`${site.name} — home`}>ZOVARIX<span aria-hidden="true">®</span></a>
+        <a className="brand" href="#top" aria-label={`${site.name} — home`}>{site.name}</a>
         <span>{t.footer.tagline}</span>
         <span dir="ltr">© {site.name} {new Date().getFullYear()}</span>
         <a href="#top" className="back-top">{t.footer.top}</a>

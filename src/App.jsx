@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
-import { copy } from './content.js';
+import { copy, site } from './content.js';
 import { getInitialLang, storage, useActiveSection, useReducedMotion, useReveal } from './lib/hooks.js';
 import Nav, { SECTIONS } from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
@@ -21,7 +21,7 @@ export default function App() {
   const [lang, setLang] = useState(getInitialLang);
   const [introMode, setIntroMode] = useState(() => {
     if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return 'done';
-    return storage.get('zovarix-intro', 'sessionStorage') ? 'short' : 'full';
+    return storage.get('brand-intro', 'sessionStorage') ? 'short' : 'full';
   });
   const [veil, setVeil] = useState(introMode === 'full');
   const t = copy[lang];
@@ -35,7 +35,7 @@ export default function App() {
     html.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.title = t.meta.title;
     document.querySelector('meta[name="description"]')?.setAttribute('content', t.meta.description);
-    storage.set('zovarix-lang', lang);
+    storage.set('brand-lang', lang);
   }, [lang, t]);
 
   // Magnetic hover for buttons (mouse/pen only, off with reduced motion).
@@ -64,7 +64,7 @@ export default function App() {
   }, [reduced]);
 
   useEffect(() => {
-    storage.set('zovarix-intro', '1', 'sessionStorage');
+    storage.set('brand-intro', '1', 'sessionStorage');
     const v = setTimeout(() => setVeil(false), VEIL_MS);
     const d = setTimeout(() => setIntroMode('done'), introMode === 'full' ? INTRO_MS + 300 : 1200);
     return () => { clearTimeout(v); clearTimeout(d); };
@@ -77,8 +77,7 @@ export default function App() {
       {veil && (
         <div className="intro-veil" aria-hidden="true">
           <div className="veil-mark">
-            {'ZOVARIX'.split('').map((ch, i) => <span key={i} style={{ '--i': i }}>{ch}</span>)}
-            <sup>®</sup>
+            {site.name.split('').map((ch, i) => <span key={i} style={{ '--i': i }}>{ch}</span>)}
           </div>
           <span className="veil-line" />
         </div>

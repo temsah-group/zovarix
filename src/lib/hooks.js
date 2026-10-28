@@ -34,7 +34,7 @@ export function getInitialLang() {
     const q = new URLSearchParams(window.location.search).get('lang');
     if (q === 'ar' || q === 'en') return q;
   } catch { /* ignore */ }
-  const saved = storage.get('zovarix-lang');
+  const saved = storage.get('brand-lang');
   if (saved === 'ar' || saved === 'en') return saved;
   const nav = (navigator.languages?.[0] || navigator.language || '').toLowerCase();
   return nav.startsWith('ar') ? 'ar' : 'en';
